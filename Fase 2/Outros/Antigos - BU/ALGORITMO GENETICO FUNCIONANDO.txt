@@ -1,0 +1,52 @@
+#COLOQUE ANTES DO PROCESSAMENTO (DA MARK)
+
+# Importar a biblioteca para busca de hiperparâmetros com algoritmos genéticos
+from geneticalgorithm import geneticalgorithm as ga
+
+# Passo 2: Otimização de Hiperparâmetros com Algoritmos Genéticos
+
+# Definir a função de fitness (avaliação) para o algoritmo genético
+def fitness_function(params):
+    hidden_layer_sizes = tuple([int(neurons) for neurons in params])
+    rna = MLPClassifier(hidden_layer_sizes=hidden_layer_sizes, max_iter=2000, tol=1e-7, learning_rate_init=0.1,
+                        solver="sgd", activation="relu", learning_rate="constant", verbose=0)
+
+    # Realizar a validação cruzada para essa combinação de hiperparâmetros
+    cv_scores = []
+    for train_index, val_index in stratified_kfold.split(x_train, y_train):
+        x_train_fold, x_val_fold = x_train.iloc[train_index], x_train.iloc[val_index]
+        y_train_fold, y_val_fold = y_train.iloc[train_index], y_train.iloc[val_index]
+        
+        # Treinar o modelo com o fold de treinamento
+        rna.fit(x_train_fold, y_train_fold)
+        
+        # Avaliar o modelo com o fold de validação
+        score = roc_auc_score(y_val_fold, rna.predict(x_val_fold))
+        cv_scores.append(score)
+        
+    # Calcular a média dos scores de validação para essa combinação de hiperparâmetros
+    avg_score = np.mean(cv_scores)
+    return 1 - avg_score  # O algoritmo genético minimiza a função, portanto, estamos convertendo a métrica de maximização (AUC ROC) para minimização
+
+# Definir os limites para os hiperparâmetros
+varbound = np.array([[5, 30],  # Limite inferior e superior para o número de neurônios na primeira camada oculta
+                     [5, 30]]) # Limite inferior e superior para o número de neurônios na segunda camada oculta (caso tenha)
+
+algorithm_param = {'max_num_iteration': 100, 'population_size': 10, 'mutation_probability': 0.1, 'elit_ratio': 0.01,
+                   'parents_portion': 0.3, 'crossover_probability': 0.5, 'parents_portion': 0.3, 'crossover_probability': 0.5,
+                   'crossover_type': 'uniform', 'max_iteration_without_improv': None}
+model = ga(function=fitness_function, dimension=2, variable_type='int', variable_boundaries=varbound,
+           function_timeout=100, algorithm_parameters=algorithm_param)
+
+# Realizar a otimização
+best_params, best_score = model.run()
+
+# Extrair os melhores hiperparâmetros encontrados
+best_hidden_layer_sizes = tuple([int(neurons) for neurons in best_params])
+
+print(f"Melhor combinação de hiperparâmetros: hidden_layer_sizes={best_hidden_layer_sizes}, score={1 - best_score}")
+
+# Treinamento final com a melhor combinação de hiperparâmetros usando todo o conjunto de treinamento
+final_rna = MLPClassifier(hidden_layer_sizes=best_hidden_layer_sizes, max_iter=2000, tol=1e-7, learning_rate_init=0.1,
+                          solver="sgd", activation="relu", learning_rate="constant", verbose=2)
+final_rna.fit(x_train, y_train)

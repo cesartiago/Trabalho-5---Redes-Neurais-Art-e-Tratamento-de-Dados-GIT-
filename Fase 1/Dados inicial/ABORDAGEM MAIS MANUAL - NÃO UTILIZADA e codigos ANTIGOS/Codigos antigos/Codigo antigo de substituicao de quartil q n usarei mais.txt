@@ -1,0 +1,32 @@
+# Organizando a coluna em ordem crescente no LibreOffice Calc, reparei os seguintes outliers:  # (Dicionário) 
+outliers = {
+    'V1': [0, 1, 4, 9], # chave V1 com seu item [lista].
+    'V2': [60, 915161],
+    'V5': [0, 0.7, 2.8, 6.3],
+    'V6': [],  # Não considerei os valores marcados como outliers expressivos, pois tem vários parecidos.
+    'V11': [0],
+    'V12': [1680000, 1990000]
+}
+
+# Substituindo os outliers pelos quartis mais próximos daquela coluna
+for coluna, valores_outliers in outliers.items(): # iterar sobre os pares chave-valor
+    quartis = df_original[coluna].quantile([0.25, 0.5, 0.75])
+    quartil_inferior = quartis[0.25]
+    quartil_mediana = quartis[0.5]
+    quartil_superior = quartis[0.75]
+    
+    for valor_outlier in valores_outliers:
+        distancia_inferior = abs(valor_outlier - quartil_inferior)
+        distancia_mediana = abs(valor_outlier - quartil_mediana)
+        distancia_superior = abs(valor_outlier - quartil_superior)
+        
+        # Substituir o outlier pelo quartil ou mediana mais próximo
+        if distancia_inferior <= distancia_mediana and distancia_inferior <= distancia_superior:
+            df_original.loc[df_original[coluna] == valor_outlier, coluna] = quartil_inferior
+        elif distancia_mediana <= distancia_inferior and distancia_mediana <= distancia_superior:
+            df_original.loc[df_original[coluna] == valor_outlier, coluna] = quartil_mediana
+        else:
+            df_original.loc[df_original[coluna] == valor_outlier, coluna] = quartil_superior
+
+# Exiba o DataFrame com os outliers substituídos
+df_original.head(17)

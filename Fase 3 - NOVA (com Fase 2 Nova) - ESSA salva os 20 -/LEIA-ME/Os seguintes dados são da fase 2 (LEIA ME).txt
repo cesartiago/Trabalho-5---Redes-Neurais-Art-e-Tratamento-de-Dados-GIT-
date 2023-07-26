@@ -1,0 +1,9 @@
+					Os seguintes dados são da fase 2 (LEIA ME):
+
+O arquivo a seguir é o resultado final do que foi pedido na fase 2: "MLP - Com treinos CV (agora exporta certo - eh da fase 2)"(.ipynb)
+
+
+-> Após rodá-lo, se foi gerado os seguintes arquivos (QUE TAMBÉM SÃO DA FASE 2):
+
+	-Tudo o que está nas pastas: "modelos" e "estatistica_por_grupos_no_formato_json"
+	- "variaveis_mlp"(.py arq. fonte) e "estatisticas_modelos_e_lista_de_modelos_mlp."(.py arq. fonte) e "estatisticas_modelos.txt"

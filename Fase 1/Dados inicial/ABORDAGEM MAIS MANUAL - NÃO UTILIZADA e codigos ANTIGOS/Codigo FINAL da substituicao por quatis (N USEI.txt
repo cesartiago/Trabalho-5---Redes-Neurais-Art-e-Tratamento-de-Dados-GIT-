@@ -1,0 +1,47 @@
+# Definir limite para considerar um valor como outlier
+limite = 5  # Número de desvios padrão a partir da média
+
+# Criar um dicionário vazio para armazenar os outliers
+outliers = {}
+
+# Percorrer todas as colunas do DataFrame
+for coluna in df_original.columns:
+    # Calcular média e desvio padrão da coluna
+    media = df_original[coluna].mean()
+    desvio_padrao = df_original[coluna].std()
+
+    # Identificar outliers
+    outliers_coluna = df_original.loc[abs(df_original[coluna] - media) > limite * desvio_padrao]
+
+    # Verificar se há outliers para a coluna atual
+    if not outliers_coluna.empty:
+        # Armazenar os valores outliers e seus índices no dicionário
+        outliers[coluna] = {
+            'Valores': outliers_coluna[coluna].to_list(),
+            'Indice': outliers_coluna.index.to_list()
+        }
+
+        # Substituir os outliers pelos quartis mais próximos daquela coluna
+        quartis = df_original[coluna].quantile([0.25, 0.5, 0.75])
+        quartil_inferior = quartis[0.25]
+        quartil_mediana = quartis[0.5]
+        quartil_superior = quartis[0.75]
+
+        for i in range(len(outliers[coluna]['Valores'])):
+            valor_outlier = outliers[coluna]['Valores'][i]
+            indice_outlier = outliers[coluna]['Indice'][i]
+
+            distancia_inferior = abs(valor_outlier - quartil_inferior)
+            distancia_mediana = abs(valor_outlier - quartil_mediana)
+            distancia_superior = abs(valor_outlier - quartil_superior)
+
+            # Substituir o outlier pelo quartil ou mediana mais próximo
+            if distancia_inferior <= distancia_mediana and distancia_inferior <= distancia_superior:
+                df_original.loc[indice_outlier, coluna] = quartil_inferior
+            elif distancia_mediana <= distancia_inferior and distancia_mediana <= distancia_superior:
+                df_original.loc[indice_outlier, coluna] = quartil_mediana
+            else:
+                df_original.loc[indice_outlier, coluna] = quartil_superior
+
+# Exiba o DataFrame com os outliers substituídos
+df_original.head(31)

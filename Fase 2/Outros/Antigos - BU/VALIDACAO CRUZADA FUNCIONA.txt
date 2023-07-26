@@ -1,0 +1,55 @@
+#COLOQUE ANTES DO PROCESSAMENTO (DA MARK)
+
+# Passo 1: Validação Cruzada
+
+# Definir o número de folds (k)
+k = 5
+
+# Criar uma instância do StratifiedKFold para garantir que a distribuição de classes seja mantida em cada fold
+stratified_kfold = StratifiedKFold(n_splits=k, shuffle=True, random_state=42)
+
+# Lista para armazenar os scores médios de validação para cada combinação de hiperparâmetros
+scores = []
+
+# Passo 2: Busca em Grade (Grid Search) para ajustar hiperparâmetros
+
+# Definir a lista de valores para o número de camadas ocultas
+hidden_layer_sizes_list = [(10,), (20,), (30,), (10, 5), (20, 10), (30, 10)]
+
+# Definir a lista de valores para o número de neurônios em cada camada
+neurons_list = [5, 10, 15]
+
+# Loop sobre as combinações de hiperparâmetros
+for hidden_layer_sizes in hidden_layer_sizes_list:
+    for neurons in neurons_list:
+        # Criar uma instância do classificador MLP com os hiperparâmetros
+        rna = MLPClassifier(hidden_layer_sizes=hidden_layer_sizes, max_iter=2000, tol=1e-7, learning_rate_init=0.1,
+                            solver="sgd", activation="relu", learning_rate="constant", verbose=0)
+
+        # Realizar a validação cruzada para essa combinação de hiperparâmetros
+        cv_scores = []
+        for train_index, val_index in stratified_kfold.split(x_train, y_train):
+            x_train_fold, x_val_fold = x_train.iloc[train_index], x_train.iloc[val_index]
+            y_train_fold, y_val_fold = y_train.iloc[train_index], y_train.iloc[val_index]
+            
+            # Treinar o modelo com o fold de treinamento
+            rna.fit(x_train_fold, y_train_fold)
+            
+            # Avaliar o modelo com o fold de validação
+            score = roc_auc_score(y_val_fold, rna.predict(x_val_fold))
+            cv_scores.append(score)
+            
+        # Calcular a média dos scores de validação para essa combinação de hiperparâmetros
+        avg_score = np.mean(cv_scores)
+        scores.append((hidden_layer_sizes, neurons, avg_score))
+
+# Encontrar a melhor combinação de hiperparâmetros com base nos scores médios de validação
+best_combination = max(scores, key=lambda x: x[2])
+best_hidden_layer_sizes, best_neurons, best_score = best_combination
+
+print(f"Melhor combinação de hiperparâmetros: hidden_layer_sizes={best_hidden_layer_sizes}, neurons={best_neurons}, score={best_score}")
+
+# Treinamento final com a melhor combinação de hiperparâmetros usando todo o conjunto de treinamento
+final_rna = MLPClassifier(hidden_layer_sizes=best_hidden_layer_sizes, max_iter=2000, tol=1e-7, learning_rate_init=0.1,
+                          solver="sgd", activation="relu", learning_rate="constant", verbose=2)
+final_rna.fit(x_train, y_train)

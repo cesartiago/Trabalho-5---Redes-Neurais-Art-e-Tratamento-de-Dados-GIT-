@@ -1,0 +1,8 @@
+Outliers:
+
+Coluna V1: 0,1,4,9 (menores ou iguais a 9)
+Coluna V2: 60 e 915161
+Coluna V5: 0, 0.7, 2.8, 6.3
+Coluna V6: NÃO CONSIDEREI OS VALORES QUE MARQUEI.
+Coluna V11: 0
+V12: 1680000, 1990000

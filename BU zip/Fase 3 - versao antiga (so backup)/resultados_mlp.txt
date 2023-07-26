@@ -1,0 +1,162 @@
+Modelo 1
+Acurácia: 73.47
+Matriz de Confusão:
+[[ 6 13]
+ [ 0 30]]
+
+Modelo 2
+Acurácia: 83.67
+Matriz de Confusão:
+[[17  2]
+ [ 6 24]]
+
+Modelo 3
+Acurácia: 81.63
+Matriz de Confusão:
+[[16  3]
+ [ 6 24]]
+
+Modelo 4
+Acurácia: 77.55
+Matriz de Confusão:
+[[15  4]
+ [ 7 23]]
+
+Modelo 5
+Acurácia: 85.71
+Matriz de Confusão:
+[[17  2]
+ [ 5 25]]
+
+Modelo 6
+Acurácia: 81.63
+Matriz de Confusão:
+[[17  2]
+ [ 7 23]]
+
+Modelo 7
+Acurácia: 75.51
+Matriz de Confusão:
+[[11  8]
+ [ 4 26]]
+
+Modelo 8
+Acurácia: 83.67
+Matriz de Confusão:
+[[16  3]
+ [ 5 25]]
+
+Modelo 9
+Acurácia: 85.71
+Matriz de Confusão:
+[[16  3]
+ [ 4 26]]
+
+Modelo 10
+Acurácia: 73.47
+Matriz de Confusão:
+[[ 6 13]
+ [ 0 30]]
+
+Modelo 11
+Acurácia: 81.63
+Matriz de Confusão:
+[[15  4]
+ [ 5 25]]
+
+Modelo 12
+Acurácia: 87.76
+Matriz de Confusão:
+[[15  4]
+ [ 2 28]]
+
+Modelo 13
+Acurácia: 83.67
+Matriz de Confusão:
+[[14  5]
+ [ 3 27]]
+
+Modelo 14
+Acurácia: 83.67
+Matriz de Confusão:
+[[13  6]
+ [ 2 28]]
+
+Modelo 15
+Acurácia: 85.71
+Matriz de Confusão:
+[[19  0]
+ [ 7 23]]
+
+Modelo 16
+Acurácia: 71.43
+Matriz de Confusão:
+[[ 6 13]
+ [ 1 29]]
+
+Modelo 17
+Acurácia: 81.63
+Matriz de Confusão:
+[[17  2]
+ [ 7 23]]
+
+Modelo 18
+Acurácia: 77.55
+Matriz de Confusão:
+[[18  1]
+ [10 20]]
+
+Modelo 19
+Acurácia: 73.47
+Matriz de Confusão:
+[[ 6 13]
+ [ 0 30]]
+
+Modelo 20
+Acurácia: 89.80
+Matriz de Confusão:
+[[16  3]
+ [ 2 28]]
+
+Modelo 21
+Acurácia: 89.80
+Matriz de Confusão:
+[[16  3]
+ [ 2 28]]
+
+Modelo 22
+Acurácia: 83.67
+Matriz de Confusão:
+[[15  4]
+ [ 4 26]]
+
+Modelo 23
+Acurácia: 89.80
+Matriz de Confusão:
+[[19  0]
+ [ 5 25]]
+
+Modelo 24
+Acurácia: 79.59
+Matriz de Confusão:
+[[18  1]
+ [ 9 21]]
+
+Modelo 25
+Acurácia: 83.67
+Matriz de Confusão:
+[[17  2]
+ [ 6 24]]
+
+Modelo 26
+Acurácia: 83.67
+Matriz de Confusão:
+[[13  6]
+ [ 2 28]]
+
+Modelo 27
+Acurácia: 81.63
+Matriz de Confusão:
+[[14  5]
+ [ 4 26]]
+

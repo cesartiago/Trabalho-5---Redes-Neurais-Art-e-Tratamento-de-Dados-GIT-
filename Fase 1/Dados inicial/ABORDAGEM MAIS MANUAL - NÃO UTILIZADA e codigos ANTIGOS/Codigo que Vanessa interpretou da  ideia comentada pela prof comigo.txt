@@ -1,0 +1,25 @@
+#VANESSA FALOU
+
+# Fazer uma cópia do DataFrame original
+df_copia = df_original.copy()
+
+# Separar os dados de cada classe
+classe_0 = df_copia[df_copia['V15'] == 0]
+classe_1 = df_copia[df_copia['V15'] == 1]
+
+# Aplicar a normalização em cada classe separadamente
+scaler = MinMaxScaler()
+
+# Normalizar a classe 0
+colunas_numericas = df_copia.columns[:-1]  # Selecionar todas as colunas exceto a última (V15)
+classe_0[colunas_numericas] = scaler.fit_transform(classe_0[colunas_numericas])
+
+# Normalizar a classe 1
+classe_1[colunas_numericas] = scaler.fit_transform(classe_1[colunas_numericas])
+
+# Juntar as classes novamente no DataFrame original
+df_copia.update(classe_0)
+df_copia.update(classe_1)
+
+# Exibir o DataFrame com as classes normalizadas
+df_copia

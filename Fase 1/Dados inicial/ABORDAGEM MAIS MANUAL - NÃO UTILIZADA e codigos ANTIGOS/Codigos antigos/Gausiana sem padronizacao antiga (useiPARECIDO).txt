@@ -1,0 +1,34 @@
+# Função para plotar a curva gaussiana
+def plot_gaussiana(media, desvio_padrao, label):
+    x = np.linspace(media - 3*desvio_padrao, media + 3*desvio_padrao, 100)
+    #x_padronizado = (x - np.min(x)) / (np.max(x) - np.min(x))
+    #MANDAR EMAIL PRA KUPAC
+
+
+    y = (1 / (desvio_padrao * np.sqrt(2*np.pi))) * np.exp(-0.5*((x - media)/desvio_padrao)**2)
+    plt.plot(x, y, label=label)
+
+# Separar os dados em classes 0 e 1
+df_classe_0 = df_normalizado[df_normalizado['V15'] == 0]
+df_classe_1 = df_normalizado[df_normalizado['V15'] == 1]
+
+# Iterar pelas colunas de V1 a V14
+for coluna in df_normalizado.columns[:-1]:
+    # Calcular média e desvio padrão para a classe 0
+    media_classe0 = df_classe_0[coluna].mean()
+    desvio_padrao_classe0 = df_classe_0[coluna].std()
+    
+    # Calcular média e desvio padrão para a classe 1
+    media_classe1 = df_classe_1[coluna].mean()
+    desvio_padrao_classe1 = df_classe_1[coluna].std()
+    
+    # Plotar as curvas gaussianas para a coluna atual
+    plt.figure()
+    plot_gaussiana(media_classe0, desvio_padrao_classe0, 'Classe 0')
+    plot_gaussiana(media_classe1, desvio_padrao_classe1, 'Classe 1')
+    plt.xlabel('Valores')
+    plt.ylabel('Densidade')
+    plt.title(f'Curvas Gaussianas para {coluna}')
+    plt.legend()
+    plt.grid(True)
+    plt.show()

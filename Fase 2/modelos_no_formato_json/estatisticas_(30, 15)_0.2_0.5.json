@@ -1,0 +1,1 @@
+{"hidden_layer_sizes": [30, 15], "learning_rate_init": 0.2, "momentum": 0.5, "mean_accuracy": 0.695889328063241, "std_accuracy": 0.018508577780373625}

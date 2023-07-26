@@ -1,0 +1,2 @@
+COMO ARQUIVOS EXTERNOS SE GEROU NA FASE 3:
+	"resultados_unicos_e_por_grupo.txt"

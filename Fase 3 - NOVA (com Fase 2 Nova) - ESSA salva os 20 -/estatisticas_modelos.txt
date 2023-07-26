@@ -1,0 +1,108 @@
+Hiperparâmetros: (10, 5), 0.01, 0.5
+Média de Acurácia: 0.6657
+Desvio Padrão de Acurácia: 0.0269
+
+Hiperparâmetros: (10, 5), 0.01, 0.9
+Média de Acurácia: 0.7096
+Desvio Padrão de Acurácia: 0.0309
+
+Hiperparâmetros: (10, 5), 0.01, 0.99
+Média de Acurácia: 0.6426
+Desvio Padrão de Acurácia: 0.0331
+
+Hiperparâmetros: (10, 5), 0.1, 0.5
+Média de Acurácia: 0.7035
+Desvio Padrão de Acurácia: 0.0314
+
+Hiperparâmetros: (10, 5), 0.1, 0.9
+Média de Acurácia: 0.7052
+Desvio Padrão de Acurácia: 0.0296
+
+Hiperparâmetros: (10, 5), 0.1, 0.99
+Média de Acurácia: 0.6644
+Desvio Padrão de Acurácia: 0.0374
+
+Hiperparâmetros: (10, 5), 0.2, 0.5
+Média de Acurácia: 0.6650
+Desvio Padrão de Acurácia: 0.0347
+
+Hiperparâmetros: (10, 5), 0.2, 0.9
+Média de Acurácia: 0.6805
+Desvio Padrão de Acurácia: 0.0244
+
+Hiperparâmetros: (10, 5), 0.2, 0.99
+Média de Acurácia: 0.6574
+Desvio Padrão de Acurácia: 0.0363
+
+Hiperparâmetros: (20, 10), 0.01, 0.5
+Média de Acurácia: 0.6936
+Desvio Padrão de Acurácia: 0.0187
+
+Hiperparâmetros: (20, 10), 0.01, 0.9
+Média de Acurácia: 0.7493
+Desvio Padrão de Acurácia: 0.0188
+
+Hiperparâmetros: (20, 10), 0.01, 0.99
+Média de Acurácia: 0.6773
+Desvio Padrão de Acurácia: 0.0361
+
+Hiperparâmetros: (20, 10), 0.1, 0.5
+Média de Acurácia: 0.7209
+Desvio Padrão de Acurácia: 0.0170
+
+Hiperparâmetros: (20, 10), 0.1, 0.9
+Média de Acurácia: 0.7041
+Desvio Padrão de Acurácia: 0.0312
+
+Hiperparâmetros: (20, 10), 0.1, 0.99
+Média de Acurácia: 0.6834
+Desvio Padrão de Acurácia: 0.0397
+
+Hiperparâmetros: (20, 10), 0.2, 0.5
+Média de Acurácia: 0.6699
+Desvio Padrão de Acurácia: 0.0313
+
+Hiperparâmetros: (20, 10), 0.2, 0.9
+Média de Acurácia: 0.7132
+Desvio Padrão de Acurácia: 0.0298
+
+Hiperparâmetros: (20, 10), 0.2, 0.99
+Média de Acurácia: 0.6690
+Desvio Padrão de Acurácia: 0.0383
+
+Hiperparâmetros: (30, 15), 0.01, 0.5
+Média de Acurácia: 0.6896
+Desvio Padrão de Acurácia: 0.0154
+
+Hiperparâmetros: (30, 15), 0.01, 0.9
+Média de Acurácia: 0.7515
+Desvio Padrão de Acurácia: 0.0290
+
+Hiperparâmetros: (30, 15), 0.01, 0.99
+Média de Acurácia: 0.6933
+Desvio Padrão de Acurácia: 0.0413
+
+Hiperparâmetros: (30, 15), 0.1, 0.5
+Média de Acurácia: 0.7086
+Desvio Padrão de Acurácia: 0.0225
+
+Hiperparâmetros: (30, 15), 0.1, 0.9
+Média de Acurácia: 0.7101
+Desvio Padrão de Acurácia: 0.0275
+
+Hiperparâmetros: (30, 15), 0.1, 0.99
+Média de Acurácia: 0.7111
+Desvio Padrão de Acurácia: 0.0367
+
+Hiperparâmetros: (30, 15), 0.2, 0.5
+Média de Acurácia: 0.6672
+Desvio Padrão de Acurácia: 0.0322
+
+Hiperparâmetros: (30, 15), 0.2, 0.9
+Média de Acurácia: 0.7152
+Desvio Padrão de Acurácia: 0.0199
+
+Hiperparâmetros: (30, 15), 0.2, 0.99
+Média de Acurácia: 0.6798
+Desvio Padrão de Acurácia: 0.0289
+
