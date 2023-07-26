@@ -1,11 +1,12 @@
 # IA_Redes-Neurais-Artificiais-e-Tratamento-de-Dados_UFRRJ
  Inteligencia Artificial - Redes Neurais Artificiais e Tratamento de Dados - UFRRJ (MLP)
 
-Desenvolvimento de redes MLP em um problema de classificação com tratamento de dados espúrios.
-Helon de Franca 1, Tiago César 2
-Universidade Federal Rural do Rio de Janeiro
-Seropédica – RJ – Brazil
-{helonfranca02@ufrrj.br, tiago.person.student@gmail.com}
+    Desenvolvimento de redes MLP em um problema de classificação com tratamento de dados espúrios.
+
+    Helon de Franca 1, Tiago César 2
+    Universidade Federal Rural do Rio de Janeiro
+    Seropédica – RJ – Brazil
+    {helonfranca02@ufrrj.br, tiago.person.student@gmail.com}
 
 RESUMO
 
